@@ -1,0 +1,94 @@
+[
+  {
+    "id": "amb1",
+    "vehicle_number": "KA-36-A-1081",
+    "type": "Advanced Life Support",
+    "lat": 16.2050,
+    "lng": 77.3450,
+    "status": "available",
+    "driver": "Ramesh Kumar",
+    "phone": "9876543210",
+    "attached_hospital": "RIMS Raichur"
+  },
+  {
+    "id": "amb2",
+    "vehicle_number": "KA-36-A-2045",
+    "type": "Basic Life Support",
+    "lat": 16.1900,
+    "lng": 77.3600,
+    "status": "en_route",
+    "driver": "Suresh Patil",
+    "phone": "9876543211",
+    "attached_hospital": "District Government Hospital",
+    "destination": "Sirwar Village",
+    "eta_minutes": 18
+  },
+  {
+    "id": "amb3",
+    "vehicle_number": "KA-36-B-3012",
+    "type": "Advanced Life Support",
+    "lat": 15.9950,
+    "lng": 77.0500,
+    "status": "available",
+    "driver": "Mahesh Nayak",
+    "phone": "9876543212",
+    "attached_hospital": "Taluka General Hospital Manvi"
+  },
+  {
+    "id": "amb4",
+    "vehicle_number": "KA-36-B-4078",
+    "type": "Basic Life Support",
+    "lat": 15.7800,
+    "lng": 76.7600,
+    "status": "busy",
+    "driver": "Venkatesh Gowda",
+    "phone": "9876543213",
+    "attached_hospital": "Taluka General Hospital Sindhanur"
+  },
+  {
+    "id": "amb5",
+    "vehicle_number": "KA-36-C-5033",
+    "type": "Basic Life Support",
+    "lat": 16.1600,
+    "lng": 76.5300,
+    "status": "available",
+    "driver": "Basavaraj H",
+    "phone": "9876543214",
+    "attached_hospital": "Taluka General Hospital Lingasugur"
+  },
+  {
+    "id": "amb6",
+    "vehicle_number": "KA-36-C-6090",
+    "type": "Advanced Life Support",
+    "lat": 16.2200,
+    "lng": 77.3500,
+    "status": "available",
+    "driver": "Shivakumar M",
+    "phone": "9876543215",
+    "attached_hospital": "Navodaya Medical College Hospital"
+  },
+  {
+    "id": "amb7",
+    "vehicle_number": "KA-36-D-7015",
+    "type": "Basic Life Support",
+    "lat": 16.4350,
+    "lng": 76.9350,
+    "status": "en_route",
+    "driver": "Mallappa R",
+    "phone": "9876543216",
+    "attached_hospital": "Taluka General Hospital Devadurga",
+    "destination": "Kavital",
+    "eta_minutes": 25
+  },
+  {
+    "id": "amb8",
+    "vehicle_number": "KA-36-D-8052",
+    "type": "Basic Life Support",
+    "lat": 16.0100,
+    "lng": 76.4500,
+    "status": "available",
+    "driver": "Hanumantappa S",
+    "phone": "9876543217",
+    "attached_hospital": "CHC Mudgal"
+  }
+]

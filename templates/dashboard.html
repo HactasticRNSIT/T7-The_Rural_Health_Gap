@@ -100,7 +100,7 @@
       <div class="glass-card max-w-3xl mx-auto">
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-lg font-semibold">New Case Entry</h3>
-          <div class="step-indicator"><div class="step-dot active" id="step1-dot"></div><div class="step-dot" id="step2-dot"></div><div class="step-dot" id="step3-dot"></div></div>
+          <div class="step-indicator"><div class="step-dot active" id="step1-dot"></div><div class="step-dot" id="step2-dot"></div><div class="step-dot" id="step3-dot"></div><div class="step-dot" id="step4-dot"></div></div>
         </div>
         <div id="form-success" style="display:none" class="text-center py-12">
           <div class="success-check mx-auto mb-4"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
@@ -135,14 +135,45 @@
             <div id="vitals-alert" style="display:none" class="mt-4 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm"></div>
             <div class="flex justify-between mt-6"><button type="button" class="btn-secondary" onclick="goStep(1)">← Back</button><button type="button" class="btn-primary" onclick="goStep(3)">Next →</button></div>
           </div>
-          <!-- Step 3 -->
+          <!-- Step 3: Medical History -->
           <div id="step3" class="form-step" style="display:none">
-            <h4 class="text-sm font-semibold text-teal-400 mb-4">Step 3 — Conditions & History</h4>
+            <h4 class="text-sm font-semibold text-teal-400 mb-4">Step 3 — Medical History & Conditions</h4>
             <div class="form-group"><label class="form-label">Diabetes Status</label><select name="diabetes_status" class="form-select"><option value="None">None</option><option value="Pre-diabetic">Pre-diabetic</option><option value="Type 1">Type 1</option><option value="Type 2">Type 2</option></select></div>
-            <div class="form-group"><label class="form-label">Chronic Conditions</label><input name="chronic_conditions" class="form-input" placeholder="e.g. Hypertension, Asthma"></div>
-            <div class="form-group"><label class="form-label">Health History</label><textarea name="health_history" class="form-textarea" placeholder="Previous diagnoses, surgeries, medications..."></textarea></div>
-            <div class="form-group"><label class="form-label">Current Symptoms</label><textarea name="current_symptoms" class="form-textarea" placeholder="Describe current symptoms..."></textarea></div>
-            <div class="flex justify-between mt-6"><button type="button" class="btn-secondary" onclick="goStep(2)">← Back</button><button type="submit" class="btn-primary">Submit Record</button></div>
+            <div class="form-group">
+              <label class="form-label">Known Conditions (select all that apply)</label>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_diabetes" value="Diabetes" class="accent-teal-500 w-4 h-4"> <span class="text-sm">🩸 Diabetes</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_hypertension" value="Hypertension" class="accent-teal-500 w-4 h-4"> <span class="text-sm">💉 Hypertension</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_heatstroke" value="Heatstroke History" class="accent-teal-500 w-4 h-4"> <span class="text-sm">🌡️ Heatstroke History</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_heart" value="Heart Disease" class="accent-teal-500 w-4 h-4"> <span class="text-sm">❤️ Heart Disease</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_allergies" value="Allergies" class="accent-teal-500 w-4 h-4"> <span class="text-sm">🤧 Allergies</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:border-teal-500/40 transition-colors">
+                  <input type="checkbox" name="cond_other" value="Other" class="accent-teal-500 w-4 h-4"> <span class="text-sm">📋 Other</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label">Other Chronic Conditions</label><input name="chronic_conditions" class="form-input" placeholder="e.g. Asthma, COPD, Anemia..."></div>
+            <div class="form-group"><label class="form-label">Past Medical History</label><textarea name="health_history" class="form-textarea" rows="3" placeholder="Previous diagnoses, surgeries, medications, family history..."></textarea></div>
+            <div class="flex justify-between mt-6"><button type="button" class="btn-secondary" onclick="goStep(2)">← Back</button><button type="button" class="btn-primary" onclick="goStep(4)">Next →</button></div>
+          </div>
+          <!-- Step 4: Current Symptoms & Submit -->
+          <div id="step4" class="form-step" style="display:none">
+            <h4 class="text-sm font-semibold text-teal-400 mb-4">Step 4 — Current Complaints & Review</h4>
+            <div class="form-group"><label class="form-label">Current Complaints / Symptoms *</label><textarea name="current_symptoms" class="form-textarea" rows="4" placeholder="Describe current symptoms in detail — e.g. chest pain for 2 days, difficulty breathing at night, swelling in legs..." required></textarea></div>
+            <div class="form-group"><label class="form-label">Symptom Duration</label><input name="symptom_duration" class="form-input" placeholder="e.g. 3 days, 1 week, 2 months"></div>
+            <div class="form-group"><label class="form-label">Severity</label><select name="severity" class="form-select"><option value="Mild">Mild — Manageable, not urgent</option><option value="Moderate">Moderate — Needs attention soon</option><option value="Severe">Severe — Requires immediate care</option><option value="Critical">Critical — Life-threatening</option></select></div>
+            <div id="severity-alert" style="display:none" class="mt-2 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">🚨 Critical severity selected — this case will be flagged for immediate attention.</div>
+            <div class="flex justify-between mt-6"><button type="button" class="btn-secondary" onclick="goStep(3)">← Back</button><button type="submit" class="btn-primary">✅ Submit Record</button></div>
           </div>
         </form>
       </div>
@@ -254,4 +285,5 @@
 <script src="{{ url_for('static', filename='js/emergency.js') }}"></script>
 <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
 <script src="{{ url_for('static', filename='js/advocacy.js') }}"></script>
+<script src="{{ url_for('static', filename='js/case-entry.js') }}"></script>
 {% endblock %}
